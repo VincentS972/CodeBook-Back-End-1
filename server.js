@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const profileRoutes = require("./routes/Profile");
-const forumRoutes = require("./routes/forum");
+const forumRoutes = require("./routes/Forum");
 //add routs here
 const app = express();
 
