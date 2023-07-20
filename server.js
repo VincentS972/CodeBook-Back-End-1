@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
+// const cors = require("cors");
 require("dotenv").config();
 
 const profileRoutes = require("./routes/Profile");
@@ -10,14 +10,14 @@ const app = express();
 
 //middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(cors());
 
 //routes
 app.use("/Profile", profileRoutes);
 app.use("/Forum", forumRoutes);
 
-const PORT = process.env.PORT || 8080;
+
 
 // db connection
 mongoose
@@ -27,6 +27,8 @@ mongoose
   })
   .then(() => console.log("DB connected"))
   .catch((err) => console.error(err));
+
+ const PORT = process.env.PORT   
 
 app.listen(PORT, console.log(`listining on port ${PORT}`));
 
