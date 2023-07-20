@@ -15,7 +15,7 @@ app.use(cors());
 
 //routes
 app.use("/Profile", profileRoutes);
-app.use("/forum", forumRoutes);
+app.use("/Forum", forumRoutes);
 
 const PORT = process.env.PORT || 8080;
 
