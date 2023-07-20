@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const forumSchema = new mongoose.Schema(
   {
@@ -19,4 +19,4 @@ const forumSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-module.exports = mongoose.model("Forum", forumSchema);
+module.exports = mongoose.model('Forum', forumSchema);
