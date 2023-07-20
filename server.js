@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-const profileRoutes = require("/routes/Profile");
-const forumRoutes = require("/routes/Forum");
+const profileRoutes = require("./routes/Profile");
+const forumRoutes = require("./routes/Forum");
 //add routs here
 const app = express();
 
