@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //routes
-app.use("/Profile", profileRoutes);
-app.use("/Forum", forumRoutes);
+app.use("/profile", profileRoutes);
+app.use("/forum", forumRoutes);
 
 
 
