@@ -89,12 +89,12 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params
   try {
-      const person = await Profile.findById(id)
-      res.json(person)
+      const profile = await Profile.findById(id)
+      res.json(profile)
 
   } catch (error) {
-      console.log('error retreiving person:', error)
-      res.status(404).json({ message: `error retreiving person with id ${id}` })
+      console.log('error retreiving profile:', error)
+      res.status(404).json({ message: `error retreiving profile with id ${id}` })
   }
 })
 
@@ -104,10 +104,22 @@ router.post('/', async (req, res) => {
       res.json(user)
 
   } catch (error) {
-      console.log('error creating person:', error)
-      res.status(500).json({ message: 'error creating person' })
+      console.log('error creating profile:', error)
+      res.status(500).json({ message: 'error creating profile' })
   }
   
+})
+
+router.post('/login', async (req, res) => {
+  const { emailAddress } = req.body;
+  try {
+    const profile = await Profile.findOne({ emailAddress: `${emailAddress}` });
+    console.log('we are her', profile);
+    return res.json(profile);
+  } catch (error) {
+    console.log('error fetching profile', error);
+    res.json({ message: 'error fetching profile' });
+  }
 })
 
 module.exports = router
