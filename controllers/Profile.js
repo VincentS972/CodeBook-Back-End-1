@@ -112,6 +112,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { emailAddress } = req.body;
+  console.log(emailAddress)
   try {
     const profile = await Profile.findOne({ emailAddress: `${emailAddress}` });
     console.log('we are her', profile);
