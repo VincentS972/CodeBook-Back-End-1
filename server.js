@@ -16,7 +16,7 @@ app.use(cors())
 
 //routes
 app.use('/profile', profileControllers)
-app.use('/Forum', forumControllers)
+app.use('/forum', forumControllers)
 // app.use('/forum', forumRoutes)
 
 // db connection
