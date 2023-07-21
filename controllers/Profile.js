@@ -1,4 +1,4 @@
-const Profile = require('../models/profile');
+const Profile = require('../models/Profile');
 
 async function getAllProfiles(req, res) {
   try {
