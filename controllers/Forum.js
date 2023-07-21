@@ -1,4 +1,4 @@
-const Forum = require('/models/Forum');
+const Forum = require('../models/Forum');
 
 async function getAllForums(req, res) {
   try {
