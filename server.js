@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 require('dotenv').config()
 
-const profileRoutes = require('./routes/profile')
-const forumRoutes = require('./routes/forum')
+// const profileRoutes = require('./routes/profile')
+// const forumRoutes = require('./routes/forum')
 //add routs here
 const app = express()
 
@@ -14,10 +14,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 //routes
-app.use(require('/profile', profileRoutes))
-app.use('/forum', forumRoutes)
+// app.use('/profile', profileRoutes)
+// app.use('/forum', forumRoutes)
 
-
+app.use(require('/.routes/profile'))
+app.use(require('./routes/forum'))
 
 // db connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, })
