@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-const profileRoutes = require('./routes/Profile');
-const forumRoutes = require('./routes/Forum');
+const profileRoutes = require('./routes/profile');
+const forumRoutes = require('./routes/forum');
 //add routs here
 const app = express();
 
@@ -28,4 +28,4 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 app.listen(PORT, console.log(`listining on port ${PORT}`));
 
-module.exports = app;
+// module.exports = app;
