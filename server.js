@@ -1,21 +1,21 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+const express = require('express')
+const mongoose = require('mongoose')
+const cors = require('cors')
+require('dotenv').config()
 
-const profileRoutes = require('./routes/profile');
-const forumRoutes = require('./routes/forum');
+const profileRoutes = require('./routes/profile')
+const forumRoutes = require('./routes/forum')
 //add routs here
-const app = express();
+const app = express()
 
 //middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 
 //routes
-app.use('profile', profileRoutes);
-app.use('forum', forumRoutes);
+app.use('/profile', profileRoutes)
+app.use('/forum', forumRoutes)
 
 
 
