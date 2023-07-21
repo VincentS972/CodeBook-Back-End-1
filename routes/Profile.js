@@ -6,10 +6,10 @@ const {
     updateProfileById,
     getProfileById,
     getProfileByEmail
-} = require('../controllers/Profile')
+} = require('../controllers/profile')
 
 // GET / get all Profiles
-router.get('/', getAllProfiles)
+router.get('/profile', getAllProfiles)
 
 // GET / get one profile by email
 // router.get('/login',getProfileByEmail)
