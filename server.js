@@ -4,6 +4,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const profileControllers = require('./controllers/Profile')
+const forumControllers = require('./controllers/Forum')
 // const forumRoutes = require('./routes/forum')
 //add routs here
 const app = express()
@@ -15,6 +16,7 @@ app.use(cors())
 
 //routes
 app.use('/profile', profileControllers)
+app.use('/Forum', forumControllers)
 // app.use('/forum', forumRoutes)
 
 // db connection
