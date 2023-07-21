@@ -9,7 +9,7 @@ const {
 } = require('../controllers/profile')
 
 // GET / get all Profiles
-router.get('/profile', getAllProfiles)
+router.get('/', getAllProfiles)
 
 // GET / get one profile by email
 // router.get('/login',getProfileByEmail)
