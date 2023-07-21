@@ -1,27 +1,29 @@
-// Modules and Globals
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 require('dotenv').config()
 
-//Express Settings
+const profileRoutes = require('./routes/profile')
+const forumRoutes = require('./routes/forum')
+//add routs here
+const app = express()
 
+//middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-// Controllers & Routes
+//routes
+app.use('/profile', profileRoutes)
+app.use('/forum', forumRoutes)
 
-app.use('/profile', require('./controllers/profile'))
-app.use('/forum', require('./controllers/forum'))
+// db connection
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, })
+  .then(() => console.log('DB connected'))
+  .catch((err) => console.error(err));
 
-app.get('/', (req, res) => {
-    res.render('home')
-})
+ const PORT = process.env.PORT || 8080
 
-app.get('*', (req, res) => {
-    res.render('error404')
-})
+app.listen(PORT, console.log(`listining on port ${PORT}`));
 
-// Listen for Connections
-app.listen(process.env.PORT)
+module.exports = app;

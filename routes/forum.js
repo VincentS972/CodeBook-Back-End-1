@@ -6,12 +6,13 @@ const {
     updateForumById,
     getForumById
    
-} = require ('../controllers/forum')
+} = require ('../controllers/Forum')
 
 //GET / get all breads
 router.get('/', getAllForums)
 
 //Get / :id get bread by id
+
 router.get('/:id', getForumById)
 
 //POST/ create Bread
