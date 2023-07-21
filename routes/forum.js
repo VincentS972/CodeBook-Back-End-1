@@ -6,7 +6,7 @@ const {
     updateForumById,
     getForumById
    
-} = require ('../controllers/Forum')
+} = require ('../controllers/forum')
 
 //GET / get all breads
 router.get('/', getAllForums)

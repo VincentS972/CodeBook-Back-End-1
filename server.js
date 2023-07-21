@@ -17,8 +17,8 @@ app.use(cors())
 // app.use('/profile', profileRoutes)
 // app.use('/forum', forumRoutes)
 
-app.use(require('/.routes/profile'))
-app.use(require('./routes/forum'))
+app.use(require('./routes/profile'))
+// app.use(require('./routes/forum'))
 
 // db connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, })
