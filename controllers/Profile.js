@@ -101,7 +101,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
       const user = await new Profile(req.body).save()
-      res.json(user)
+      res.json({ 'message': 'Profile created' })
 
   } catch (error) {
       console.log('error creating profile:', error)
@@ -120,6 +120,18 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     console.log('error fetching profile', error);
     res.json({ message: 'error fetching profile' });
+  }
+})
+
+router.put('/update/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!req.body.image) req.body.image = undefined;
+    await Profile.findByIdAndUpdate(id, req.body);
+    res.status(204).json({ message: 'Profile updated' });
+  } catch (error) {
+    console.log('error updating Profile:', error);
+    res.json({ message: 'error updating Profile' });
   }
 })
 
