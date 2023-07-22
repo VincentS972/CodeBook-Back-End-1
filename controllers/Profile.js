@@ -135,4 +135,15 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Profile.findByIdAndDelete(id);
+    res.status(204).json({ message: 'profile deleted' });
+  } catch (error) {
+    console.log('error deleting Profile:', error);
+    res.json({ message: 'error deleting Profile' });
+  }
+})
+
 module.exports = router
