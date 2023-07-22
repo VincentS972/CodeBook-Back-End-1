@@ -123,7 +123,7 @@ router.post('/login', async (req, res) => {
   }
 })
 
-router.put('/update/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     if (!req.body.image) req.body.image = undefined;
