@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import { Schema, model, connect } from 'mongoose';
 const bcrypt = require('bcryptjs');
 
 const profileSchema = new mongoose.Schema(
@@ -36,15 +36,15 @@ const profileSchema = new mongoose.Schema(
   timestamps: true
 })
 
-profileSchema.pre("save", function (next) {
+profileSchema.pre("save", function (next: (arg0: undefined) => void) {
   const user = this
 
   if (this.isModified("password",) || this.isNew) {
-    bcrypt.genSalt(10, function (saltError, salt) {
+    bcrypt.genSalt(10, function (saltError: any, salt: any) {
       if (saltError) {
         return next(saltError)
       } else {
-        bcrypt.hash(user.password, salt, function(hashError, hash) {
+        bcrypt.hash(user.password, salt, function(hashError: any, hash: any) {
           if (hashError) {
             return next(hashError)
           }
@@ -60,8 +60,8 @@ profileSchema.pre("save", function (next) {
 })
 
 
-profileSchema.methods.comparePassword = function(password, callback) {
-  bcrypt.compare(password, this.password, function(error, isMatch) {
+profileSchema.methods.comparePassword = function(password: any, callback: (arg0: null, arg1: undefined) => void) {
+  bcrypt.compare(password, this.password, function(error: any, isMatch: any) {
     if (error) {
       return callback(error)
     } else {
